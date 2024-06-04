@@ -7,8 +7,9 @@ import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
 import TimelineDot from "@mui/lab/TimelineDot";
 import { Box, Typography } from "@mui/material";
+import TimelineModal from "./timelineModal";
 
-interface TimelineEntry {
+export interface TimelineEntry {
   title: string;
   datetime: Date;
   description: string;
@@ -17,6 +18,9 @@ interface TimelineEntry {
 }
 
 export default function BasicTimeline() {
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const [curTimeline, setCurTimeline] = useState<TimelineEntry | undefined>();
   const [entries, setEntries] = useState<TimelineEntry[]>([
     {
@@ -137,6 +141,7 @@ export default function BasicTimeline() {
                 sx={{ cursor: "pointer" }}
                 onClick={() => {
                   setCurTimeline(item);
+                  handleOpen();
                 }}
                 position={idx % 2 === 0 ? "left" : "right"}
               >
@@ -152,6 +157,12 @@ export default function BasicTimeline() {
           })}
         </Timeline>
       </Box>
+      <TimelineModal
+        handleClose={handleClose}
+        handleOpen={handleOpen}
+        open={open}
+        item={curTimeline}
+      />
     </div>
   );
 }
@@ -160,7 +171,7 @@ interface TimelineCardProps {
   entry: TimelineEntry;
 }
 
-function TimelineCard({ entry }: TimelineCardProps) {
+const TimelineCard = ({ entry }: TimelineCardProps) => {
   return (
     <Box
       sx={{
@@ -191,7 +202,7 @@ function TimelineCard({ entry }: TimelineCardProps) {
       />
     </Box>
   );
-}
+};
 
 const formatDateToMonthYear = (date: Date): string => {
   // Create an Intl.DateTimeFormat instance with the desired options
