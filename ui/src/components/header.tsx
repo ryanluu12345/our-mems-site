@@ -20,7 +20,7 @@ export default function Header() {
       >
         <Link
           color={"white"}
-          fontSize={32}
+          fontSize={28}
           fontWeight={400}
           href="#home"
           underline="none"
@@ -29,7 +29,7 @@ export default function Header() {
         </Link>
         <Link
           color={"white"}
-          fontSize={32}
+          fontSize={28}
           fontWeight={400}
           href="#timeline"
           underline="none"
@@ -38,7 +38,7 @@ export default function Header() {
         </Link>
         <Link
           color={"white"}
-          fontSize={32}
+          fontSize={28}
           fontWeight={400}
           href="#letter"
           underline="none"
