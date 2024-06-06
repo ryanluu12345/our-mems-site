@@ -35,7 +35,7 @@ function App() {
             paddingLeft: 8,
           }}
         >
-          <Typography variant="h1">Happy 2 Year Anniversary</Typography>
+          <Typography variant="h1">Happy 2 Year Anniversary, Ailin!</Typography>
           <Typography color={"white"} variant="h2">
             Cheers to many more memories
           </Typography>
