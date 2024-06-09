@@ -14,7 +14,9 @@ export interface TimelineEntry {
   datetime: Date;
   description: string;
   headerImg: string;
-  contentPath: string;
+  contentRelPath: string;
+  startIdx: number;
+  endIdx: number;
 }
 
 export default function BasicTimeline() {
@@ -37,7 +39,9 @@ more about each other - Bowen Island, the drive up to whistler, taking care of e
 from crystal mall.`,
       // TODO: replace this later.
       headerImg: "https://ailin-mems.s3.amazonaws.com/22-10-la/0005.png",
-      contentPath: "",
+      contentRelPath: "22-08-van",
+      startIdx: 0,
+      endIdx: 0,
     },
     {
       title: "Los Angeles",
@@ -50,7 +54,9 @@ from crystal mall.`,
       the aesthetic photo shoot day in Getty Villa, visited SF and did the whole walking tour around the city, ate so much
       tasty asian food until our bellies busted (shoutout to banh mi), and started off the tradition of going back and forth.`,
       headerImg: "https://ailin-mems.s3.amazonaws.com/22-10-la/0009.png",
-      contentPath: ``,
+      contentRelPath: "22-10-la",
+      startIdx: 1,
+      endIdx: 22,
     },
     {
       title: "New York",
@@ -65,7 +71,9 @@ from crystal mall.`,
       that I admire so much. The fact that we are so comfortable going to the Museum of Sex and just saying "bet, let's do it"
       is a hallmark of our relationship. We just take opportunities as they come and enjoy the life experience.`,
       headerImg: "https://ailin-mems.s3.amazonaws.com/22-12-ny/0009.png",
-      contentPath: "",
+      contentRelPath: "22-12-ny",
+      startIdx: 1,
+      endIdx: 12,
     },
     {
       title: "Montreal",
@@ -83,7 +91,9 @@ from crystal mall.`,
       I love seeing you in your element and being a guest in your world. It helps me to better understand you,
       the people who love you, and the activities you enjoy doing.`,
       headerImg: "https://ailin-mems.s3.amazonaws.com/23-02-mtl/0002.png",
-      contentPath: "",
+      contentRelPath: "23-02-mtl",
+      startIdx: 1,
+      endIdx: 49,
     },
     {
       title: "Los Angeles, Seattle, and San Diego",
@@ -98,7 +108,9 @@ from crystal mall.`,
       Next time, let's go back to SD when the sun is immaculate haha.`,
       headerImg:
         "https://ailin-mems.s3.amazonaws.com/23-05-la-sea-sd-seq/0002.png",
-      contentPath: "",
+      contentRelPath: "23-05-la-sea-sd-seq",
+      startIdx: 1,
+      endIdx: 53,
     },
     {
       title: "Toronto and Montreal",
@@ -112,7 +124,9 @@ from crystal mall.`,
       how we are always willing to take care of each other no matter what. We still had some memorable times exploring Canada, doing the spa,
       and spending time with Sam/Jason. Isn't it crazy that we played cupid like that too?`,
       headerImg: "https://ailin-mems.s3.amazonaws.com/23-07-tor-mtl/0002.png",
-      contentPath: "",
+      contentRelPath: "23-07-tor-mtl",
+      startIdx: 1,
+      endIdx: 22,
     },
     {
       title: "Montreal",
@@ -121,7 +135,9 @@ from crystal mall.`,
       your parents. There were a lot of hikes, orchards, and drives through different areas of Montreal.
       It was one of those trips where I felt like it was a good routine.`,
       headerImg: "https://ailin-mems.s3.amazonaws.com/23-10-mtl/0002.png",
-      contentPath: "",
+      contentRelPath: "23-10-mtl",
+      startIdx: 1,
+      endIdx: 12,
     },
     {
       title: "Victor Yang NA Tour (MTL + NY)",
@@ -135,7 +151,9 @@ from crystal mall.`,
       about communal living. The day we hung out with Jaja and then all the NY homies was so iconic in my mind, just
       blending together the worlds and doing a whole day of activities and hangouts. So fun!`,
       headerImg: "https://ailin-mems.s3.amazonaws.com/23-11-ny-victor/0002.png",
-      contentPath: "",
+      contentRelPath: "23-11-ny-victor",
+      startIdx: 1,
+      endIdx: 16,
     },
     {
       title: "Victor Yang NA Tour (LA)",
@@ -146,7 +164,9 @@ from crystal mall.`,
       Clippers game we went to was wilddddd! During this trip, we also had our friendsgiving, saw some life situations unfold :eyes:,
       and spent much needed quality time with Victor. `,
       headerImg: "https://ailin-mems.s3.amazonaws.com/23-12-la-victor/0002.png",
-      contentPath: "",
+      contentRelPath: "23-12-la-victor",
+      startIdx: 1,
+      endIdx: 21,
     },
     {
       title: "Montreal",
@@ -160,7 +180,9 @@ from crystal mall.`,
       was a routine month that also encompassed many hangouts with your core group of friends. The snack activity was really cool
       and so was going to see your 2k show.`,
       headerImg: "https://ailin-mems.s3.amazonaws.com/24-02-mtl/0002.png",
-      contentPath: "",
+      contentRelPath: "24-02-mtl",
+      startIdx: 1,
+      endIdx: 10,
     },
     {
       title: "Europe",
@@ -178,7 +200,9 @@ from crystal mall.`,
       older, we still have that energy and consistent love. I want to keep taking photos for you so you always feel pretty.
       And I want us to always plan fun things to do and spend time doing that with our kids in the future too.`,
       headerImg: "https://ailin-mems.s3.amazonaws.com/24-03-europe/0002.png",
-      contentPath: "",
+      contentRelPath: "24-03-europe",
+      startIdx: 1,
+      endIdx: 55,
     },
     {
       title: "Coachella and LA",
@@ -194,7 +218,9 @@ from crystal mall.`,
       I could share this with you every day.`,
       headerImg:
         "https://ailin-mems.s3.amazonaws.com/24-04-la-coachella/0007.png",
-      contentPath: "",
+      contentRelPath: "24-04-la-coachella",
+      startIdx: 1,
+      endIdx: 30,
     },
     {
       title: "New York",
@@ -206,7 +232,9 @@ from crystal mall.`,
       for you hahahahah. But real talk, it was so fun hanging out at jade and clover and doing that bar crawl
       with the old housemates.`,
       headerImg: "https://ailin-mems.s3.amazonaws.com/24-05-ny/0003.png",
-      contentPath: "",
+      contentRelPath: "24-05-ny",
+      startIdx: 1,
+      endIdx: 4,
     },
   ]);
 

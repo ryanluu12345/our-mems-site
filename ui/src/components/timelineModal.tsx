@@ -1,18 +1,31 @@
 import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
+import Carousel from "react-material-ui-carousel";
 import { TimelineEntry, formatDateToMonthYear } from "./timeline";
+
+const s3Root = "https://ailin-mems.s3.amazonaws.com";
+
+const getImageLinks = (entry: TimelineEntry): string[] => {
+  let links: string[] = [];
+  for (let i = entry.startIdx; i <= entry.endIdx; i++) {
+    let paddedIndex = i.toString().padStart(4, "0");
+    links.push(`${s3Root}/${entry.contentRelPath}/${paddedIndex}.png`);
+  }
+  return links;
+};
 
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
-  width: 350,
+  width: 500,
+  height: "80%",
   bgcolor: "background.paper",
   borderRadius: 2,
   boxShadow: 24,
+  overflow: "auto",
   p: 4,
 };
 
@@ -26,16 +39,16 @@ interface TimelineModalProps {
 export default function TimelineModal({
   item,
   open,
-  handleOpen,
   handleClose,
 }: TimelineModalProps) {
   if (item === undefined) {
     return <></>;
   }
 
+  const imageLinks = getImageLinks(item);
+
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
       <Modal
         open={open}
         onClose={handleClose}
@@ -43,6 +56,19 @@ export default function TimelineModal({
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
+          <Typography
+            sx={{
+              alignSelf: "center",
+              fontWeight: 800,
+              textAlign: "center",
+              fontSize: 32,
+            }}
+            id="modal-modal-title"
+            variant="h6"
+            component="h2"
+          >
+            {item.title} ({formatDateToMonthYear(item.datetime)})
+          </Typography>
           <Box
             sx={{
               display: "flex",
@@ -50,25 +76,35 @@ export default function TimelineModal({
               alignItems: "center",
             }}
           >
-            <Box
-              component="img"
+            <Carousel
               sx={{
-                height: 233,
-                width: 350,
-                maxHeight: { xs: 233, md: 167 },
-                maxWidth: { xs: 350, md: 250 },
-                borderRadius: 2,
-                objectFit: "cover",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                minHeight: 300,
+                height: "100%",
+                width: "80%",
               }}
-              alt="Header image."
-              src={item.headerImg}
-            />
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              {item.title} ({formatDateToMonthYear(item.datetime)})
-            </Typography>
+            >
+              {imageLinks.map((image, idx) => {
+                return (
+                  <Box
+                    component="img"
+                    sx={{
+                      height: "100%",
+                      width: "100%",
+                      borderRadius: 2,
+                      objectFit: "cover",
+                    }}
+                    alt="Header image."
+                    src={image}
+                  />
+                );
+              })}
+            </Carousel>
             <Typography
               id="modal-modal-description"
-              sx={{ mt: 2, height: 250, overflow: "auto" }}
+              sx={{ mt: 2, height: "80%", width: "80%", overflow: "auto" }}
             >
               {item.description}
             </Typography>
