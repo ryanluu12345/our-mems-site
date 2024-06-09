@@ -41,8 +41,8 @@ function App() {
           </Typography>
         </Box>
       </Box>
-      <BasicTimeline />
       <Letter />
+      <BasicTimeline />
     </Box>
   );
 }

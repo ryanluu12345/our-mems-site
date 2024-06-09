@@ -22,10 +22,10 @@ export default function Header() {
           color={"white"}
           fontSize={28}
           fontWeight={400}
-          href="#home"
+          href="#letter"
           underline="none"
         >
-          Home
+          Letter
         </Link>
         <Link
           color={"white"}
@@ -35,15 +35,6 @@ export default function Header() {
           underline="none"
         >
           Timeline
-        </Link>
-        <Link
-          color={"white"}
-          fontSize={28}
-          fontWeight={400}
-          href="#letter"
-          underline="none"
-        >
-          Letter
         </Link>
       </Box>
     </div>
