@@ -304,7 +304,7 @@ const TimelineCard = ({ entry }: TimelineCardProps) => {
       <Typography variant="h5" fontWeight={700}>
         {formatDateToMonthYear(entry.datetime)}
       </Typography>
-      <Typography variant="h5">{entry.title}</Typography>
+      <Typography variant="h6">{entry.title}</Typography>
       <Box
         component="img"
         sx={{

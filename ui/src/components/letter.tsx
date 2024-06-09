@@ -10,8 +10,14 @@ export default function Letter() {
           <Box className="lid two"></Box>
           <Box className="envelope"></Box>
           <Box className="letter">
-            <Typography fontWeight={800}>To my dear, Ailin</Typography>
-            <Typography variant="body2" sx={{ textAlign: "left" }}>
+            <Typography fontFamily={"Yellowtail"} fontWeight={800}>
+              To my dear, Ailin
+            </Typography>
+            <Typography
+              fontFamily={"Yellowtail"}
+              variant="body2"
+              sx={{ textAlign: "left" }}
+            >
               Looking through our memories, I'm always impressed by how much
               we've overcome, experienced, and continue to learn. I'm most
               thankful that I can do life with someone who is as optimistic,
