@@ -252,7 +252,7 @@ from crystal mall.`,
         <Typography sx={{ py: 2 }} variant="h2">
           Timeline of Our Love
         </Typography>
-        <Timeline sx={{ width: "40%" }}>
+        <Timeline sx={{ width: "60%" }}>
           {entries.map((item, idx) => {
             return (
               <TimelineItem
@@ -301,17 +301,15 @@ const TimelineCard = ({ entry }: TimelineCardProps) => {
         borderRadius: 2,
       }}
     >
-      <Typography fontWeight={700}>
+      <Typography variant="h5" fontWeight={700}>
         {formatDateToMonthYear(entry.datetime)}
       </Typography>
-      <Typography>{entry.title}</Typography>
+      <Typography variant="h5">{entry.title}</Typography>
       <Box
         component="img"
         sx={{
-          height: 233,
-          width: 350,
-          maxHeight: { xs: 233, md: 167 },
-          maxWidth: { xs: 350, md: 250 },
+          height: "80%",
+          width: "90%",
           borderRadius: 2,
           objectFit: "cover",
         }}
