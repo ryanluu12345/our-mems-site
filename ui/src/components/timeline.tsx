@@ -37,11 +37,10 @@ we had that talk on the kayak I was still hesitant. Thanks for not throwing me o
 a new beginning and the honeymoon phase. I feel like those 5 days were a full month of us going on dates and learning
 more about each other - Bowen Island, the drive up to whistler, taking care of each other, and trying every tasty thing
 from crystal mall.`,
-      // TODO: replace this later.
-      headerImg: "https://ailin-mems.s3.amazonaws.com/22-10-la/0005.png",
+      headerImg: "https://ailin-mems.s3.amazonaws.com/22-08-van/0001.png",
       contentRelPath: "22-08-van",
-      startIdx: 0,
-      endIdx: 0,
+      startIdx: 1,
+      endIdx: 17,
     },
     {
       title: "Los Angeles",
@@ -299,6 +298,8 @@ const TimelineCard = ({ entry }: TimelineCardProps) => {
         boxShadow: `rgba(99, 99, 99, 0.2) 0px 2px 8px 0px`,
         padding: 2,
         borderRadius: 2,
+        width: "80%",
+        height: "80%",
       }}
     >
       <Typography variant="h5" fontWeight={700}>
