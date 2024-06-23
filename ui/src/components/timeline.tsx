@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, RefObject } from "react";
 
 import Timeline from "@mui/lab/Timeline";
 import TimelineItem from "@mui/lab/TimelineItem";
@@ -19,12 +19,16 @@ export interface TimelineEntry {
   endIdx: number;
 }
 
-export default function BasicTimeline() {
+interface BasicTimelineProps {
+  timelineRef: RefObject<HTMLDivElement>;
+}
+
+export default function BasicTimeline({ timelineRef }: BasicTimelineProps) {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const [curTimeline, setCurTimeline] = useState<TimelineEntry | undefined>();
-  const [entries, setEntries] = useState<TimelineEntry[]>([
+  const [entries, _] = useState<TimelineEntry[]>([
     {
       title: "Vancouver",
       datetime: new Date("2022-08-02"),
@@ -238,7 +242,7 @@ from crystal mall.`,
   ]);
 
   return (
-    <div id="timeline">
+    <div ref={timelineRef} id="timeline">
       <Box
         sx={{
           display: "flex",
@@ -248,7 +252,7 @@ from crystal mall.`,
           margin: 0,
         }}
       >
-        <Typography sx={{ py: 2 }} variant="h2">
+        <Typography sx={{ py: 8 }} variant="h2">
           Timeline of Our Love
         </Typography>
         <Timeline sx={{ width: "60%" }}>
@@ -295,7 +299,7 @@ const TimelineCard = ({ entry }: TimelineCardProps) => {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
-        boxShadow: `rgba(99, 99, 99, 0.2) 0px 2px 8px 0px`,
+        boxShadow: `rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;`,
         padding: 2,
         borderRadius: 2,
         width: "80%",

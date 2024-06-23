@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { Box, Typography, createTheme, ThemeProvider } from "@mui/material";
 
 import "./App.css";
@@ -23,7 +24,9 @@ const theme = createTheme({
 const temeculaBackground = "/20220930-Temecula-0190.jpg";
 
 function App() {
-  // TODO: play around with tint color.
+  const timelineRef = useRef<HTMLDivElement>(null);
+  const letterRef = useRef<HTMLDivElement>(null);
+
   return (
     <ThemeProvider theme={theme}>
       <Box className="App">
@@ -35,12 +38,12 @@ function App() {
             backgroundImage: `url(${temeculaBackground})`,
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-            backgroundColor: `rgba(150,150,100,0.3)`,
+            backgroundColor: `rgba(150,150,100,0.35)`,
             backgroundBlendMode: "multiply",
             height: "100vh",
           }}
         >
-          <Header />
+          <Header letterRef={letterRef} timelineRef={timelineRef} />
           <Box
             sx={{
               flex: 1,
@@ -59,8 +62,8 @@ function App() {
             </Typography>
           </Box>
         </Box>
-        <Letter />
-        <BasicTimeline />
+        <Letter letterRef={letterRef} />
+        <BasicTimeline timelineRef={timelineRef} />
       </Box>
     </ThemeProvider>
   );

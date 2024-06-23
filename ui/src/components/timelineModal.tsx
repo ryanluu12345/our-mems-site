@@ -24,8 +24,8 @@ const style = {
   height: "50%",
   maxHeight: "80%",
   bgcolor: "background.paper",
-  borderRadius: 2,
-  boxShadow: 24,
+  borderRadius: 4,
+  boxShadow: `rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;`,
   overflow: "auto",
   p: 4,
 };
@@ -63,6 +63,7 @@ export default function TimelineModal({
               fontWeight: 800,
               textAlign: "center",
               fontSize: 32,
+              py: 2,
             }}
             id="modal-modal-title"
             variant="h6"

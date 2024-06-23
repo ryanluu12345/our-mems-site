@@ -1,6 +1,13 @@
+import { RefObject } from "react";
 import { Box, Link } from "@mui/material";
 
-export default function Header() {
+interface HeaderProps {
+  letterRef: RefObject<HTMLDivElement>;
+  timelineRef: RefObject<HTMLDivElement>;
+}
+
+export default function Header({ letterRef, timelineRef }: HeaderProps) {
+  console.log(letterRef, timelineRef);
   return (
     <div>
       <Box
@@ -14,7 +21,8 @@ export default function Header() {
           gap: 2,
           px: 2,
           py: 1,
-          backgroundColor: "rgba(0,0,0,0.1)",
+          background:
+            "linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.05))",
           borderBottomStyle: "none",
         }}
       >
@@ -22,8 +30,13 @@ export default function Header() {
           color={"white"}
           fontSize={28}
           fontWeight={400}
-          href="#letter"
+          href="#"
           underline="none"
+          onClick={() => {
+            if (letterRef.current) {
+              letterRef.current.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
         >
           Letter
         </Link>
@@ -31,8 +44,13 @@ export default function Header() {
           color={"white"}
           fontSize={28}
           fontWeight={400}
-          href="#timeline"
+          href="#"
           underline="none"
+          onClick={() => {
+            if (timelineRef.current) {
+              timelineRef.current.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
         >
           Timeline
         </Link>

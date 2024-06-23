@@ -1,10 +1,18 @@
+import { RefObject } from "react";
 import { Box, Typography } from "@mui/material";
 import "./letter.css";
 
-export default function Letter() {
+interface LetterProps {
+  letterRef: RefObject<HTMLDivElement>;
+}
+
+export default function Letter({ letterRef }: LetterProps) {
   return (
-    <div id="letter">
+    <div ref={letterRef} id="letter">
       <Box className="container">
+        <Typography py={4} color="white" variant="h3">
+          Letter for my love 💖
+        </Typography>
         <Box className="wrapper">
           <Box className="lid one"></Box>
           <Box className="lid two"></Box>
@@ -32,6 +40,9 @@ export default function Letter() {
               can't wait for us to make more memories, deepen our relationship,
               and experience every single life milestone together. Happy two
               years' anniversary bub!
+            </Typography>
+            <Typography fontFamily={"Yellowtail"} fontWeight={600}>
+              Sincerely, Ryan Luu
             </Typography>
           </Box>
         </Box>
